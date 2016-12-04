@@ -18,6 +18,11 @@ drop.get("json", "sushi") { request in
     ])
 }
 
+drop.get("json", "sushi", String.self) { request, name in
+    let sushi = Sushi(name: name)
+    return try sushi.makeJSON()
+}
+
 drop.get("sushi", Int.self) { request, count in
     return try JSON(node: [
         "message": "へいおまち！🍣\(count)貫だよっ！！"
