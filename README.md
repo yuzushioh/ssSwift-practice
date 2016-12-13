@@ -14,3 +14,23 @@ Join the welcoming community of fellow Vapor developers in [slack](http://vapor.
 
 This package has been tested on macOS and Ubuntu.
 
+## MySQL setup
+
+```
+$ sudo mysql
+```
+```
+mysql> create user [name of user];
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> create database [name of database];
+Query OK, 1 row affected (0.00 sec)
+
+mysql> grant all on [name of database].* to '[name of user]'@'localhost' identified by '[password. could be nil]';
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> quit
+```
