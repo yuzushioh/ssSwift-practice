@@ -1,0 +1,7 @@
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "rootpass",
+    "database": "task",
+    "encoding": "utf8"
+}
