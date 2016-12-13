@@ -29,7 +29,7 @@ final class TaskController: ResourceRepresentable {
     
     // curl http://127.0.0.1:8080/tasks -X POST -d '{"title": "hoge", "rank": "中"}' -H "Content-Type: application/json" -H "Accept: application/json"
     func create(request: Request) throws -> ResponseRepresentable {
-        var task = try request.post()
+        var task = try request.postTask()
         try task.save()
         return task
     }
@@ -38,7 +38,7 @@ final class TaskController: ResourceRepresentable {
     
     // curl http://127.0.0.1:8080/tasks/id -X PUT -d '{"title": "あっぷでーと", "rank": "低"}' -H "Content-Type: application/json" -H "Accept: application/json"
     func update(request: Request, item task: Task) throws -> ResponseRepresentable {
-        let new = try request.post()
+        let new = try request.postTask()
         var task = task
         task.title = new.title
         task.rank = new.rank
@@ -78,7 +78,7 @@ final class TaskController: ResourceRepresentable {
 }
 
 extension Request {
-    func post() throws -> Task {
+    func postTask() throws -> Task {
         guard let json = json else {
             throw Abort.badRequest
         }
