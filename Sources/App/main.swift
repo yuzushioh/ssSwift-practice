@@ -1,5 +1,5 @@
 import Vapor
-import VaporMySQL
+import VaporPostgresSQL
 
 let drop = Droplet()
 
