@@ -34,3 +34,12 @@ Query OK, 0 rows affected (0.00 sec)
 
 mysql> quit
 ```
+
+## MySQL Error
+
+When it says "The server quit without updating PID file" in th terminal
+
+Run: 
+```
+sudo chown -R _mysql:_mysql /usr/local/var/mysql
+```
