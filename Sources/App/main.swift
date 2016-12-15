@@ -7,6 +7,8 @@ drop.preparations.append(Task.self)
 drop.preparations.append(User.self)
 try drop.addProvider(VaporPostgreSQL.Provider.self)
 
+drop.middleware.append(TaskMiddleWare())
+
 drop.resource("users", UserController())
 drop.resource("tasks", TaskController())
 

@@ -20,6 +20,12 @@ final class UserController: ResourceRepresentable {
     
     func create(request: Request) throws -> ResponseRepresentable {
         var user = try request.postUser()
+        let users = try User.query().filter("email", user.email).run()
+        
+        guard users.isEmpty else {
+            throw CustomServerError.userAlreadyExisted
+        }
+        
         try user.save()
         return user
     }
