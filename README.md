@@ -43,3 +43,9 @@ Run:
 ```
 sudo chown -R _mysql:_mysql /usr/local/var/mysql
 ```
+
+Postgres起動
+
+```
+postgres -D /usr/local/var/postgres/
+```
